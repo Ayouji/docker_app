@@ -14,7 +14,8 @@ jobs:
     # Step 1: Set up PHP
     - uses: shivammathur/setup-php@v2
       with:
-        php-version: '8.0'
+        php-version: '8.2' # Use the correct PHP version
+        extensions: mbstring, pdo, sqlite
 
     # Step 2: Check out the repository
     - uses: actions/checkout@v3
@@ -46,4 +47,4 @@ jobs:
       env:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite
-      run: php artisan serve
+      run: php artisan test
